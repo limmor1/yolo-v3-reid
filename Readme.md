@@ -13,10 +13,10 @@ Checkpoints with saved weights for each model can be downloaded from these locat
 
 Weight path | Weights location in Google Drive
 ------------|-----------------------------------
-Yolo-v3-REID/deep_sort/deep/checkpoint | [TODO: link] weights/deepsort
-Yolo-v3-REID/detector_YOLO_v3/YOLOv3/weight |  [TODO: link] weights/detector_yolov3_zqpei
-Yolo-v3-REID/detector_YOLO_v3_REID/YOLOv3_lindernoren/weights|  [TODO: link] weights/detector_yolov3_reid_ours_transfer
-Yolo-v3-REID/detector_YOLO_v3_REID/YOLOv3_lindernoren/checkpoints |  [TODO: link] weights/detector_yolov3_reid_ours_model
+Yolo-v3-REID/deep_sort/deep/checkpoint | https://drive.google.com/drive/folders/1_bMasSdj3zOKTV3BHjYISN3ttGaoHoMJ?usp=sharing
+Yolo-v3-REID/detector_YOLO_v3/YOLOv3/weight |  https://drive.google.com/drive/folders/1Cb-R0T3oC_tWHsJJVcjr2cidxpU81mPD?usp=sharing
+Yolo-v3-REID/detector_YOLO_v3_REID/YOLOv3_lindernoren/weights| https://drive.google.com/drive/folders/106mytOEM-vyznVovO_8kLF_nsHHC2PML?usp=sharing
+Yolo-v3-REID/detector_YOLO_v3_REID/YOLOv3_lindernoren/checkpoints | https://drive.google.com/drive/folders/1tfzjNZ_zv5VW3i2Pj7KyeoJRMGzs4Dy0?usp=sharing
 
 # Usage #
 Run yolov3_reid_deepsort.py to test the model. Place the input video in `/examples`. The result is saved as images to `/output`
@@ -35,15 +35,18 @@ Integrating the re-identification module into the detector can affect detector p
 # Performance #
 ## Tracker time ##
 The diagram shows performance improvement of YOLO-v3-REID over YOLO-v3 + standalone DeepSORT feature extractor network. 3 configurations are tested, with "skip-end" and "mix-end" model showing overall improvement in time.
-[TODO: DIAGRAM]
+
+![alt text](https://github.com/limmor1/yolo-v3-reid/blob/master/readme_images/tracker_time.png "Tracker time comparison")
 
 ## Tracker performance ##
 MOT16 benchmark was used to evaluate overall tracker performance. The table shows improvements in MOTA score and mostly tracked/lost track as well as identity switches over a bypass condition (no ReID signal used).
-[TODO: DIAGRAM]
+
+![alt text](https://github.com/limmor1/yolo-v3-reid/blob/master/readme_images/MOT16_skipend_performance.png "Tracker MOT16 result")
 
 ## ReID performance ##
 YOLO-v3 produces detections at three scales. For each scale YOLO-v3-REID outputs a feature embedding vector. ROC curve for all three scales is shown below to illustrate the discerning power of the ReID output. Diagonal illustrates a no-skill model.
-[TODO: DIAGRAM]
+
+![alt text](https://github.com/limmor1/yolo-v3-reid/blob/master/readme_images/reid_performance_skipend.png "ReID module discerning power")
 
 # Training #
 Training is done on a combined dataset from MOT benchmarks (MOT15 + MOT16 + MOT20) with some sequences removed for validation.
@@ -66,7 +69,10 @@ flag | meaning
 `--data` flag defines the path to a dataset configuration file that contains paths to files listing images in training and validation datasets. Each of the `.train` and `.val` files should contain the list of paths to each training image.
  
 Training data should be placed inside `/Yolo-v3-REID/detector_YOLO_v3_REID/YOLOv3_lindernoren/data/` with the following folder structure:
-<FOLDERS>. The dataset is accessible from [TODO: google drive link for the dataset]
+ 
+![alt text](https://github.com/limmor1/yolo-v3-reid/blob/master/readme_images/folder_structure.png "Dataset folder structure")
+ 
+The dataset is accessible from https://drive.google.com/drive/folders/1NaY5rbQ8AJlmyij4X2akcSKIwu1va2p3?usp=sharing
 You also need to create a symbolic link `Yolo-v3-REID/data/data --> Yolo-v3-REID/detector_YOLO_v3_REID/YOLOv3_lindernoren/data`
 
 # Credit #
