@@ -1,0 +1,4 @@
+classes=1
+train=data/mot_combined/mot_combined_no_valid.train
+valid=data/mot_combined_valid/mot16_one_sequence.val
+names=data/mot.names
