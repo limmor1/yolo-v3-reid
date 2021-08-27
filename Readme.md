@@ -1,6 +1,12 @@
 # About #
 The goal of this project was to integrate the standalone ReID feature embedding module into the YOLO-v3. Visual feature embeddings are useful in pedestrian tracking as they allow distinguishing bounding boxes based on appearance. The new signal allows resolving occlusions or missing detections. DeepSORT uses a stand alone module that incurs additional computation cost. In contrast, YOLO-v3-REID is trained to perform the same task but at no extra cost. In training FairMOT cost function is used (Yifu Zhang, Chunyu Wang, Xinggang Wang, Wenjun Zeng, & Wenyu Liu. (2020). FairMOT: On the Fairness of Detection and Re-Identification in Multiple Object Tracking).
 
+# Model comparison # 
+Our model ReID (left video), standalone model (right video):
+
+![alt text](https://github.com/limmor1/yolo-v3-reid/blob/master/examples/reid_ours.gif "Tracker video (ours)")
+![alt text](https://github.com/limmor1/yolo-v3-reid/blob/master/examples/reid_standalone.gif "Tracker video (standalone)")
+
 # Setup # 
 * `$ conda create -n yolo-v3-reid`
 * `$ conda install pip`
